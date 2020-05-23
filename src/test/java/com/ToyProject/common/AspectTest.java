@@ -9,19 +9,22 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ToyProject.user.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-public class OracleConnectionTest {
+@ContextConfiguration(locations = {	"classpath:spring/com/context-common.xml",
+									"classpath:spring/com/context-aspect.xml"})
+public class AspectTest {
 
 	private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 	
 	@Resource(name="UserService")
 	private UserService userService;
 	
-	public OracleConnectionTest() {
+	public AspectTest() {
 		LOGGER.debug("Constructor " + this.getClass());
 	};
 	
