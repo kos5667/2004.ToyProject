@@ -1,25 +1,30 @@
 package com.ToyProject.common;
 
+import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.sql.DataSource;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ToyProject.user.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration({"classpath:spring/com/context-datasource.xml"})
 public class OracleConnectionTest {
 
-	private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+	@Autowired
+	private DataSource dataSource;
 	
-	@Resource(name="UserService")
-	private UserService userService;
+	private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
 	
 	public OracleConnectionTest() {
 		LOGGER.debug("Constructor " + this.getClass());
@@ -28,15 +33,8 @@ public class OracleConnectionTest {
 	@Test
 	public void testConnection() {
 		try {
-			
-			LOGGER.debug("test");
-			Map<String, Object> param = new HashMap<String, Object>();
-			
-			param.put("key", 2);
-			
-			int result = userService.insertUser(param);
-			
-			System.out.println(result);
+			Connection con=dataSource.getConnection();
+			LOGGER.debug("[TEST] OracleConnectionTest : "+con);
 		} catch (NullPointerException e) {
 			LOGGER.error("OracleConnectionTest NullPointerException : " + e.getMessage());
 		} catch (IllegalArgumentException e) {
