@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.ToyProject.user.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/com/context-datasource.xml"})
@@ -32,8 +31,7 @@ public class OracleConnectionTest {
 	
 	@Test
 	public void testConnection() {
-		try {
-			Connection con=dataSource.getConnection();
+		try (Connection con=dataSource.getConnection()){
 			LOGGER.debug("[TEST] OracleConnectionTest : "+con);
 		} catch (NullPointerException e) {
 			LOGGER.error("OracleConnectionTest NullPointerException : " + e.getMessage());
