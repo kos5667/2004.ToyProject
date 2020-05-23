@@ -5,7 +5,7 @@ import java.util.Map;
 
 public interface UserService {
 	
-	public void insertUser(Map<String,Object> param) throws Exception;
+	public int insertUser(Map<String,Object> param) throws Exception;
 	
 	public void selectUser() throws Exception;
 	

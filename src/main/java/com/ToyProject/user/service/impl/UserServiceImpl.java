@@ -1,4 +1,4 @@
-package com.ToyProject.user.service;
+package com.ToyProject.user.service.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.ToyProject.user.dao.UserDao;
+import com.ToyProject.user.service.UserService;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService{
@@ -20,9 +21,10 @@ public class UserServiceImpl implements UserService{
 	UserDao userDao;
 	
 	@Override
-	public void insertUser(Map<String, Object> param) throws Exception {
+	public int insertUser(Map<String, Object> param) throws Exception {
 		LOGGER.debug("[ServiceImpl] UserServiceImpl param = "+param);
-		
+		int result = userDao.insertUser(param);
+		return result;
 	}
 
 	@Override
