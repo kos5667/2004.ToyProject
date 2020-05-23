@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserService{
 	
 	@Override
 	public int insertUser(Map<String, Object> param) throws Exception {
-		LOGGER.debug("[ServiceImpl] UserServiceImpl param = "+param);
 		int result = userDao.insertUser(param);
 		return result;
 	}

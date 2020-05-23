@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+						http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+	
+	<!-- oracle1 -->
+	<!-- 
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+	   <tx:attributes>	 
+	       <tx:method name="*" propagation="REQUIRED" rollback-for="Exception"/>
+	   </tx:attributes>
+	</tx:advice>
+    
+	<aop:config>
+		<aop:pointcut id="requiredTx" expression="execution(* com.ToyProject..service.impl.*Impl.*(..) )"/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="requiredTx" />
+	</aop:config>
+	 -->
+	
+	<!-- TransactioManager instance 생성 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager" >
+		<property name="dataSource" ref="dataSource"/>
+	</bean>	
+	
+	<!-- Transaction Advice 생성 
+			:: method : transaction 적용 Method
+			:: propagation : transaction 전파규칙(default : REQUIRED)
+			:: read-only : 트랜잭션이 읽기만가능 (선택)-->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<!-- get 으로 시작된는 Method에 적용 transaction 규칙 -->				
+			<tx:method 	name="select*" 	propagation="REQUIRED"	read-only="true" />
+			<!-- add 으로 시작된는 Method에 적용 transaction 규칙 -->		
+			<tx:method	name="insert*"	propagation="REQUIRED"/>
+			<tx:method	name="update*"	propagation="REQUIRED"/>
+			<!--모든 Method에 적용 transaction 규칙 -->		
+			<!-- <tx:method	name="*"	 />-->	
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- AOP : pointcut / advisor 설정 -->
+	<aop:config>
+		<aop:pointcut 	id="requiredTx" expression="execution(* com.ToyProject..service.impl.*Impl.*(..) )" />
+		<aop:advisor 	advice-ref="txAdvice"  pointcut-ref="requiredTx"  />
+	</aop:config>
+	
+
+</beans>

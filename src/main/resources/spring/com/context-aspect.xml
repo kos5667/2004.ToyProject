@@ -16,9 +16,8 @@
 	 <!-- 2. 선언적으로 Point cut / Advice 정의 
 	 			:: TestAspectJ02.java(pointCut+advice 합치기(?)) 의 annotation과 아래를 비교 -->
 	 <aop:config>
-	 	<aop:aspect  ref="logAspect">
-	 		<aop:around 
-					pointcut="execution(* com.ToyProject..service.impl.*Impl.*(..) )"	method="invoke"/>
+	 	<aop:aspect ref="logAspect">
+	 		<aop:around pointcut="execution(* com.ToyProject..service.impl.*Impl.*(..) )"	method="invoke"/>
 	 	</aop:aspect>
 	 </aop:config>
 
