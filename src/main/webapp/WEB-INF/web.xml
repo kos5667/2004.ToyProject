@@ -3,7 +3,7 @@
   <display-name>2020.05.ToyProject</display-name>
   
   <!-- CommonBean -->
-  <!-- <listener>
+  <listener>
   	<listener-class>
   		org.springframework.web.context.ContextLoaderListener
   	</listener-class>
@@ -12,29 +12,29 @@
   <context-param>
   	<param-name>contextConfigLocation</param-name>
   	<param-value>
-  		classpath*:config/spring/context-*.xml
+  		classpath:config/spring/context-aspect.xml,
+  		classpath:config/spring/context-common.xml,
+  		classpath:config/spring/context-datasource.xml
   	</param-value>
-  </context-param> -->
+  </context-param>
   
   <!-- DispatcherServlet -->
-  <!-- <servlet>
+  <servlet>
     <servlet-name>action</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>/config/springMVC/dispatcher-servlet.xml</param-value>
+      <param-value>/WEB-INF/config/springMVC/dispatcher_servlet.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  
   <servlet-mapping>
     <servlet-name>action</servlet-name>
     <url-pattern>/</url-pattern>
-  </servlet-mapping> -->
-  
-  
+  </servlet-mapping>
   
   <welcome-file-list>
-  
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   

@@ -20,7 +20,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.3</version>
 				<configuration>
-					<warSourceDirectory>WebContent</warSourceDirectory>
+					<warSourceDirectory>webapp</warSourceDirectory>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -35,7 +35,14 @@
 	</repositories>
 
 	<dependencies>
-
+		<!-- javax.servlet-api -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>3.1.0</version>
+		    <scope>provided</scope>
+		</dependency>
+		
 		<!-- SpringFramework -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -47,6 +54,20 @@
 					<artifactId>commons-logging</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		
+		<!-- spring-webmvc -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-webmvc</artifactId>
+		    <version>5.2.4.RELEASE</version>
+		</dependency>
+		
+		<!-- spring-context -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>5.2.4.RELEASE</version>
 		</dependency>
 
 		<!-- spring-test -->
