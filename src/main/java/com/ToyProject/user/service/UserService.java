@@ -7,7 +7,7 @@ public interface UserService {
 	
 	public int insertUser(Map<String,Object> param) throws Exception;
 	
-	public void selectUser() throws Exception;
+	public Map<String, Object> selectUser(Map<String, Object> map) throws Exception;
 	
 	public List<Map<String,Object>> selectUserList() throws Exception;
 	
