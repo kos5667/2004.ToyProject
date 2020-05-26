@@ -27,12 +27,12 @@
 	</build>
 	
 		<!-- 오라클 -->
-	<repositories>
+	<!-- <repositories>
 		<repository>
 			<id>oracle</id>
 			<url>http://maven.jahia.org/maven2</url>
 		</repository>
-	</repositories>
+	</repositories> -->
 
 	<dependencies>
 		<!-- javax.servlet-api -->
@@ -121,19 +121,18 @@
 			<version>19.3.0.0</version>
 		</dependency>
 
-		<!-- logback -->
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>1.2.3</version>
-			<scope>test</scope>
-		</dependency>
-
 		<!-- SLF4J -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.25</version>
+		</dependency>
+
+		<!-- logback -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.2.3</version>
 		</dependency>
 
 		<!-- mybatis -->

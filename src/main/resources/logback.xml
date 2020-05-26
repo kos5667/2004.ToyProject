@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+	
+    <!-- %d{HH:mm}은 로그가 출력되는 시간이 출력된다. 중괄호{ } 안은 이 시간의 포맷이다. -->
+	<!-- %-5level은 로그 레벨을 5의 고정폭 값으로 출력하라는 것을 의미한다. -->
+	<!-- %logger는 logger의 이름을 축약해서 출력한다. 중괄호{ } 안에는 length이다. 최대 자릿수를 의미한다. -->
+	<!-- %msg는 %message의 alias로, 사용자가 출력한 메시지가 출력된다. -->
+	<!-- %n은 줄바꿈이다. -->
+	
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <Pattern>%d{HH:mm} %-5level %logger{36} - %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <logger name="org.springframework" level="INFO"/>
+    
+	<logger name="org.apache.catalina" level="ERROR"/>
+	
+    <logger name="org.apache.commons" level="ERROR"/>
+    
+    <logger name="kr.or.connect" level="DEBUG"/>
+    
+	<logger name="java.sql" level="DEBUG"/>
+	
+	<logger name="org.mybatis.spring" level="DEBUG"/>
+	
+</configuration>
