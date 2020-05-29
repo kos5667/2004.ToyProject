@@ -15,8 +15,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.ToyProject.user.service.UserService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {	"classpath:spring/com/context-common.xml",
-									"classpath:spring/com/context-aspect.xml"})
+@ContextConfiguration(locations = {	"classpath:config/spring/context-common.xml",
+									"classpath:config/spring/context-aspect.xml"})
 public class AspectTest {
 
 	private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
