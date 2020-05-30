@@ -9,7 +9,7 @@
 	
 	$(function(){
 		$("#product1").on("click",function(){
-			jQuery('form').attr('action','/product/selectProductList').attr('method','get').submit();
+			jQuery('form').attr('action','/product/selectProductList').attr('method','POST').submit();
 		})	;
 	});
 
