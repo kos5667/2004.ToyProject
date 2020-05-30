@@ -33,9 +33,6 @@ public class Main {
 		LOGGER.debug("\nmainPage :: "+this.getClass()+"\n");
 		String URL = "";
 		try {
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("key",123);
-			userService.selectUser(map);
 			URL += "/WEB-INF/jsp/main/main.jsp";
 		} catch (NullPointerException e) {
 			LOGGER.error("mainPage NullPointerException : " + e.getMessage());
