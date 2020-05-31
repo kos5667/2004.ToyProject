@@ -11,6 +11,11 @@
 		$("#product1").on("click",function(){
 			jQuery('form').attr('action','/product/selectProductList').attr('method','POST').submit();
 		})	;
+		$("#login1").on("click",function(){
+			jQuery('form').attr('action','/user/selectUserList').attr('method','POST').submit();
+		})	;
+		
+		
 	});
 
 	
@@ -19,7 +24,11 @@
 <body>
 <form>
 <div>
-<input type='button' id='product1'>
+
+<button id='product1'>product</button>
+<button id='login1'>·Î±×ÀÎ </button>
+
+
 </div>
 </form>
 </body>

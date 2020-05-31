@@ -34,8 +34,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<Map<String, Object>> selectUserList() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("UserServiceImpl¿€µø");
+		return userDao.selectUserList();
 	}
 
 	@Override

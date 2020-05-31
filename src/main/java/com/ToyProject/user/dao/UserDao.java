@@ -1,5 +1,6 @@
 package com.ToyProject.user.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -26,6 +27,11 @@ public class UserDao {
 	
 	public Map<String, Object> selectUser(Map<String, Object> map) throws Exception {
 		return sqlSession.selectOne("UserMapper.selectUser", map);
+	}
+
+	public List<Map<String, Object>> selectUserList() {
+		System.out.println("DAO »£√‚");
+		return sqlSession.selectList("UserMapper.selectUserList");
 	}
 	
 }

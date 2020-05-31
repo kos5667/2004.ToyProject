@@ -3,7 +3,7 @@
 
 <mapper namespace="UserMapper">
 
-  <select id="selectUser" resultType="map" parameterType="map">
+  <select id="selectUserList" resultType="com.ToyProject.user.vo.UserVo">
     SELECT * FROM users
   </select>
   
