@@ -11,33 +11,43 @@
 <script>
 	
 	$(function(){
-
-		
 		
 		
 		$("#btn1").on("click",function(){
-			
 				  $.ajax({
 				    url: "/product/selectProductList",
 				    type: "POST",
 				    dataType: "json",
 				    success: function(data){      
-				    	
 				    	console.log(data);
-				 
 				    },   
-				    
 				    error: function (request, status, error){  
-					      var msg = "ERROR<br><br>"
-					      msg += request.status + "<br>" + request.responseText + "<br>" + error;
-					      console.log(msg);                    
+					      console.log(error);                    
 					    }
 				});
-
-
-			
-			
 		})	;
+		
+		$('#btn2').on('click', function(){
+			$.ajax({
+				url: "/product/ajaxTest",
+				type : "GET",
+				dataType : "json",
+				success : function(testData){
+					const divTest=$('#divTest');
+					let str="";
+					for(let i=0; i<testData.length;i++){
+						const data=testData[i];
+						
+						str+=data.AUTHOR+"<br>";
+					}
+					
+					divTest.html(str);
+				},
+				error : function(error){
+					console.log(error);
+				}
+			})	
+		})
 	});
 	
 	
@@ -47,6 +57,10 @@
 
 <body>
 <input type='button' id='btn1' value="1">
+<input type='button' id='btn2' value="ajaxTest">
+<div id='divTest'>
+
+</div>
 
 </body>
 </html>

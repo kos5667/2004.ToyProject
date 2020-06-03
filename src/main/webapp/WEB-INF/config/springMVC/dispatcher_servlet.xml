@@ -23,6 +23,8 @@
    	<mvc:resources mapping="/javascript/**" location="/resources/js/" />
    	
    	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" />
+
+	
 	
 </beans>
      
